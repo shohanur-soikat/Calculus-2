@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Calculus Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 My Calculus Notes</h1>
+  <p>This is a list of all the files in this folder:</p>
+  <ul id="fileList">
+    <li>If you see nothing here, make sure your files are in the same folder as this HTML file.</li>
+  </ul>
+
+  <script>
+    fetch(window.location.href)
+      .then(response => response.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const links = [...doc.links].filter(link => link.href.includes(window.location.host) && !link.href.endsWith('/'));
+        const list = document.getElementById('fileList');
+        list.innerHTML = '';
+        links.forEach(link => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${link.href}" target="_blank">${link.textContent}</a>`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
