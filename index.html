@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Calculus Notes</title>
+  <meta charset="UTF-8">
+  <title>Calculus 2 Notes</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       background: #f4f4f4;
+      font-family: Arial, sans-serif;
       padding: 2rem;
+      color: #333;
     }
     h1 {
       text-align: center;
-      color: #333;
     }
     ul {
       list-style: none;
       padding: 0;
     }
     li {
-      margin: 10px 0;
-      background: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin: 0.5rem 0;
     }
     a {
-      text-decoration: none;
       color: #0077cc;
+      text-decoration: none;
       font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>📚 My Calculus Notes</h1>
-  <p>This is a list of all the files in this folder:</p>
-  <ul id="fileList">
-    <li>If you see nothing here, make sure your files are in the same folder as this HTML file.</li>
+  <h1>📘 Calculus 2 Class Notes</h1>
+  <p>Click to view your uploaded class files:</p>
+  <ul>
+    <li><a href="Screenshot_136.png" target="_blank">Screenshot 136</a></li>
+    <li><a href="Screenshot_137.png" target="_blank">Screenshot 137</a></li>
+    <li><a href="Screenshot_138.png" target="_blank">Screenshot 138</a></li>
+    <li><a href="Screenshot_139.png" target="_blank">Screenshot 139</a></li>
+    <li><a href="Screenshot_140.png" target="_blank">Screenshot 140</a></li>
+    <li><a href="Screenshot_141.png" target="_blank">Screenshot 141</a></li>
+    <li><a href="class_notes.pdf" target="_blank">Class Notes (PDF)</a></li>
   </ul>
-
-  <script>
-    fetch(window.location.href)
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const links = [...doc.links].filter(link => link.href.includes(window.location.host) && !link.href.endsWith('/'));
-        const list = document.getElementById('fileList');
-        list.innerHTML = '';
-        links.forEach(link => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${link.href}" target="_blank">${link.textContent}</a>`;
-          list.appendChild(li);
-        });
-      });
-  </script>
 </body>
 </html>
